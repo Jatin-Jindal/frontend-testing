@@ -1,0 +1,27 @@
+name: NodeJS with Webpack
+
+on:
+  push:
+    branches: [ main ]
+
+  workflow_dispatch: 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+    
+    steps:
+    - uses: actions/checkout@v2
+   
+    - name: Build
+      run: |
+        npm install
+        npm run build
+    
+#     - name: Push to Prod
+#       run: |
+#         git checkout
