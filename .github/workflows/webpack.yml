@@ -21,7 +21,14 @@ jobs:
       run: |
         npm install
         npm run build
-    
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.3.1
+      with:
+        # Artifact name
+        name: Node Website
+        # A file, directory or wildcard pattern that describes what to upload
+        path: /dist
+
 #     - name: Push to Prod
 #       run: |
 #         git checkout
